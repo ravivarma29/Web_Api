@@ -1,0 +1,33 @@
+﻿﻿
+
+
+<h1 style="text-align:center"> Post Data </h1>
+
+
+<table class="table table-bordered">
+
+    @foreach (var item in ViewBag.post)
+    {
+        @if (item.userId == 7)
+        {
+             <tr style="background-color:red">
+            <td> @item.userId </td>
+            <td> @item.id </td>
+            <td> @item.title </td>
+                <td> @item.body </td>
+        </tr>
+        }
+        else
+        {
+             <tr>
+            <td> @item.userId </td>
+            <td> @item.id </td>
+            <td> @item.title </td>
+                <td> @item.body </td>
+        </tr>
+        }
+
+       
+    }
+
+</table>

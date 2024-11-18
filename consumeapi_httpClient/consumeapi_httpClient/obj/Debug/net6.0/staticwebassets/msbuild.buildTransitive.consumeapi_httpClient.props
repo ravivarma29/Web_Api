@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\consumeapi_httpClient.props" />
+</Project>

@@ -1,0 +1,49 @@
+﻿﻿
+
+
+<h1 style="text-align:center"> User Details </h1>
+
+<button class="btn btn-danger" onclick="getUsers()"> Show Users </button>
+
+<div id="users" style="background-color:orange">
+</div>
+
+<script>
+    function getUsers() {
+        var url = "https://jsonplaceholder.typicode.com/users";
+
+        fetch(url).then(datatype => datatype.json())
+            .then(result => {
+                // console.log(result);
+
+                for (var i = 0; i < result.length; i++) {
+
+                    $("#users").append("<div> <h1>" + result[i].name + "</h1>" +
+                        "<h2> UserName : " + result[i].username + "</h2>" +
+                        "<h2> Email : " + result[i].email + "</h2>" +
+                        "<h2> City : " + result[i].address.city + "</h2>" +
+                        "<h2> Zipcode : " + result[i].address.zipcode + "</h2>" +
+                        "<h2> Lattitude : " + result[i].address.geo.lat + "</h2>" +
+
+                        "</hr> </div>")
+                    //  $("<div>").append("<div><h2> Name : " + result[i].name+ "</h2>"
+                    //+ "<h2> UserName : " + result[i].username + "</h2>"
+                    //+ "<h2> Email : " + result[i].email + "</h2>"
+                    //+ "<h2> City : " + result[i].address.city + "</h2>"
+                    //+ "<h2> Zipcode : " + result[i].address.zipcode + "</h2>"
+                    //+ "<h2> Lattitude : " + result[i].address.geo.lat + "</h2>"
+                    //+ "<h2> Longitude : " + result[i].address.geo.lng + "</h2>"
+                    //+ "<h2> Company Name : " + result[i].company.name + "</h2>"
+                    //+ "<h2> Catch Phase: " + result[i].company.catchPhrase + "</h2>"
+                    //+ "<hr/> </div>"
+
+
+
+                }
+            })
+            .catch(err => {
+                alert('errorrrrr');
+                console.log(err);
+            })
+    }
+</script>

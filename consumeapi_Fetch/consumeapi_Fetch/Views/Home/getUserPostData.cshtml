@@ -1,0 +1,37 @@
+﻿﻿
+
+@*This is a cshtml page*@
+@*C# HTML - we write, Html, css, js, razor syntax here*@
+
+<h1 style="text-align:center"> User Post Data </h1>
+
+<button class="btn btn-primary" onclick="getPostDatafromJsonPlaceHolder()"> Display Post </button>
+
+<table class="table table-bordered"></table>
+
+<script>
+    function getPostDatafromJsonPlaceHolder()
+    {
+        var url = "https://jsonplaceholder.typicode.com/posts";
+        fetch(url).then(responseDataType => responseDataType.json()) /*specify the datatype of incoming data*/
+                  .then(data =>{
+                    //code to display the data goes here
+                    //alert('Success');
+                    //console.log(data);
+                    //Jquery to display the data
+                    for(var i=0;i<data.length;i++)
+                    {
+                        $("table").append("<tr>" + 
+                            "<td>" + data[i].id + "</td>" +
+                        "<td>" + data[i].userId + "</td>" +
+                        "<td>" + data[i].title + "</td>" +
+                        "<td>" + data[i].body + "</td>"                  
+                        + "</tr>")
+                    }
+                  })
+                  .catch(err => {
+                      //code to display the error
+                      alert('Errrorrrrrr');
+                  })
+    }
+</script>
